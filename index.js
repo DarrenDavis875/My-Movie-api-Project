@@ -19,13 +19,13 @@ app.use((err, req, res, next) => {
 
   // GET requests for all movies
 app.get('/movies', (req, res) => {
-    res.json(movies);
+    res.send('Successful  retrieval of movie list');
   });
 
   // GET request for specific movie by title
   app.get('/movies/:title', (req, res) => {
-    res.json(movies.find((movie) =>
-      { return movie.title === req.params.name }));
+    res.send('Successful retrieval of a specific movie by title');
+  
   });
 
   // GET request for data about Genre by name
@@ -57,19 +57,31 @@ app.post('/users', (req, res) => {
  // POST request to add movie to user's favorites list by username
 
   app.post('/users/favorites/:username', (req, res) => {
-    res.json(users.find((user) =>
-      { return user.username === req.params.username }));
+    res.json(users.find((favorite) =>
+      { return favorite.title === req.params.title }));
   });
-  // POST request to delete a movie from user's favorites list by username
-  app.delete('/users/:username', (req, res) => {
+
+
+  // Delete request to delete a movie from user's favorites list by title
+  app.delete('/users/favorites/:title', (req ,res) => {
+    let user = users.find((user) => { return user.title === req.params.title });
+  
+    if (user) {
+      users= users.filter((obj) => { return obj.username !== req.params.username });
+      res.status(201).send('Movie ' + req.params.username + ' was deleted.');
+    }
+  });
+
+  // Delete request to remove users from registry by  username
+
+app.delete('/users/:username', (req, res) => {
     let user = users.find((user) => { return user.username=== req.params.username });
   
     if (user) {
       users= users.filter((obj) => { return obj.username !== req.params.username });
-      res.status(201).send('Student ' + req.params.username + ' was deleted.');
+      res.status(201).send('User' + req.params.username + ' was deleted.');
     }
   });
-
 
 
 
