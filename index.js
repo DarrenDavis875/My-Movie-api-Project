@@ -30,15 +30,13 @@ app.get('/movies', (req, res) => {
 
   // GET request for data about Genre by name
   app.get('/movies/genre/:name', (req, res) => {
-    res.json(movies.find((genre) =>
-      { return genre.name === req.params.name }));
+    res.send('Successful retrieval of data about genre');
   });
 
 
  // GET request for data about director by name
  app.get('/movies/director/:name', (req, res) => {
-  res.json(movies.find((director) =>
-    { return director.name === req.params.name }));
+  res.send('Successful retrieval of data about director');
 });
 
 // POST request to add new user
