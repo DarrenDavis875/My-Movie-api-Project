@@ -40,47 +40,34 @@ app.get('/movies', (req, res) => {
 });
 
 // POST request to add new user
-app.post('/users', (req, res) => {
-  let newUser = req.body;
-
-  if (!newUser.name) {
-    const message = 'Missing name in request body';
-    res.status(400).send(message);
-  } else {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).send(newUser);
-  }
+app.post('/users', (req, res) =>
+ { res.send('Sucessful route to add new user');
+  
 });
- // POST request to add movie to user's favorites list by username
+ // POST request to add movie to user's favorites list by id
 
-  app.post('/users/favorites/:username', (req, res) => {
-    res.json(users.find((favorite) =>
-      { return favorite.title === req.params.title }));
+  app.post('/users/favorites/:id', (req, res) => {
+    res.send('successful route to add to favorites');
   });
 
 
   // Delete request to delete a movie from user's favorites list by title
-  app.delete('/users/favorites/:title', (req ,res) => {
-    let user = users.find((user) => { return user.title === req.params.title });
-  
-    if (user) {
-      users= users.filter((obj) => { return obj.username !== req.params.username });
-      res.status(201).send('Movie ' + req.params.username + ' was deleted.');
-    }
+  app.delete('/users/favorites/:id', (req ,res) => {
+    res.send('sucessful route to delete user favorite');
   });
 
-  // Delete request to remove users from registry by  username
+  // DELETE request to remove users from registry by  username
 
-app.delete('/users/:username', (req, res) => {
-    let user = users.find((user) => { return user.username=== req.params.username });
-  
-    if (user) {
-      users= users.filter((obj) => { return obj.username !== req.params.username });
-      res.status(201).send('User' + req.params.username + ' was deleted.');
-    }
+app.delete('/users', (req, res) => {
+    res.send('sucessful route to delete user');
   });
 
+  // PUT request to change user info
+  
+  app.put('/users/:username/:email/:password/:DOB', (req, res) => {
+     res.send('changing the info email,password,username,DOB');
+     });
+  
 
 
 
