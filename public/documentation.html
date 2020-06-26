@@ -1,2 +1,116 @@
- The web application will provide users with access to information about different movies, directors, and genres.
- Users will be able to sign up, update their personal information, and create a list of their favorite movies.
+ <p>The web application will provide users with access to information about different movies, directors, and genres.
+    Users will be able to sign up, update their personal information, and create a list of their favorite movies.</p>
+
+<h3> Documentation includes each http: request/response routes for the movie_api</h3>
+
+<h2>URL: http://localhost:8080/movies</h2> 
+
+ <h4>GET request to retrieve the entire list of movies. JSON  response object format</h4>
+<p>{ 
+    title: "Jaws",
+    description:"",
+    imageURL: "",
+    featured: "yes/no", 
+    genre" {
+        name: "horror",
+        description: "",
+    } 
+    director: { 
+        name: "Steven Speilberg", 
+        bio: "a swell guy", 
+}</p> 
+
+<h2>URL: http://localhost:8080/movies/title</h2> 
+<h4>GET req to retrieve each movie by title. JSON  response object format,</h4>
+ 
+<p>{ 
+    title: "Jaws", 
+    description:"", 
+    imageURL: "", 
+    featured: "yes/no", 
+    genre: { 
+        name: "horror", 
+        dicsription: "gory type of flick", 
+    }, 
+    director: { 
+        name: "Steven Speilberg", 
+        bio: "a swell guy", 
+        birth year: "", 
+        death year: "" 
+    }, 
+} </p>
+<h2>http://localhost:8080/movies/director</h2> 
+<h4>GET director by name. returns a JSON object format with info about specific director</h4>
+<p>{ 
+    name: "", 
+    bio: "", 
+    birth year: "", 
+    death year: "", 
+} </p>
+
+
+<h2>http://localhost:8080/movie/genre/:name</h2>
+
+<h4>GET genre info by name, responds with JSON object format</h4>
+<p>{ 
+    name:"", 
+    description:"", 
+} </p>
+<h4> Query Parameter in URL = :name</h4> 
+    
+
+<h2>http://localhost:8080/users</h2> 
+<h4>POST new user to registry expecting a JSON request object.</h4> 
+<p>{ 
+    username:"", 
+    password:"", 
+    email:"", 
+    DOB:"", 
+    favorite:[], 
+} </p>
+
+<h2>http://localhost:8080/users/favorites/id</h2>
+
+<h4>POST a movie to users "favorites" file.  response expecting JSON object from request.</h4>
+
+<p>{ 
+    username:"", 
+    password:"", 
+    email:"", 
+    DOB:"", 
+    favorite:[], 
+} </p>
+
+<h2>http://localhost:8080/users/id</h2>
+<h4>DELETE request to remove user from registry by id. response is expecting JSON object from request. </h4>
+<p>{ 
+    username:"", 
+    password:"", 
+    email:"", 
+    DOB:"", 
+    favorite:[], 
+} </p>
+
+<h2>http://localhost:8080/users/id</h2>
+<h4>DELETE request to remove a specific movie from user's "favorites" by id. response is expecting JSON object from request.</h4>
+<p>{ 
+    username:"", 
+    password:"", 
+    email:"", 
+    DOB:"", 
+    favorite:[], 
+} </p>
+
+<h2>http://localhost:8080/users/username/email/password/DOB</h2>
+<h4>PUT request to change user info.response is expecting JSON object from request.</h4>
+<p>{ 
+    username:"", 
+    password:"", 
+    email:"", 
+    DOB:"", 
+    favorite:[], 
+} </p>
+
+<h4>Query Parameters in URL
+     <p>:username, :email, :password, :DOB</p>
+</h4>

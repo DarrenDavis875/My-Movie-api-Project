@@ -58,7 +58,7 @@ app.post('/users', (req, res) =>
 
   // DELETE request to remove users from registry by  username
 
-app.delete('/users', (req, res) => {
+app.delete('/users/:id', (req, res) => {
     res.send('sucessful route to delete user');
   });
 
@@ -68,14 +68,6 @@ app.delete('/users', (req, res) => {
      res.send('changing the info email,password,username,DOB');
      });
   
-
-
-
-  
-
-
-
-
 
 
   // listen for requests
