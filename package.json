@@ -19,7 +19,7 @@
   "homepage": "https://github.com/DarrenDavis875/My-Movie-api-Project#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.22",
     "morgan": "^1.10.0",
     "uuid": "^8.1.0"
